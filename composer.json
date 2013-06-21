@@ -1,0 +1,41 @@
+{
+    "name": "rezzza/shorty",
+    "description": "Shorty",
+    "keywords": ["url, shortener"],
+    "homepage": "https://github.com/rezzza/Shorty",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jérémy Romey",
+            "email": "jeremy@free-agent.fr"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/rezzza/Shorty/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/rezzza/Shorty/issues"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "guzzle/guzzle": "3.7.*"
+    },
+    "require-dev": {
+        "atoum/atoum": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rezzza\\Shorty": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
