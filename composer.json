@@ -1,7 +1,7 @@
 {
     "name": "rezzza/shorty",
     "description": "Shorty",
-    "keywords": ["url, shortener"],
+    "keywords": ["url", "shortener"],
     "homepage": "https://github.com/rezzza/Shorty",
     "type": "library",
     "license": "MIT",
