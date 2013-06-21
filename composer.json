@@ -1,6 +1,6 @@
 {
     "name": "rezzza/shorty",
-    "description": "Shorty",
+    "description": "Underwear for your long urls",
     "keywords": ["url", "shortener"],
     "homepage": "https://github.com/rezzza/Shorty",
     "type": "library",
@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "guzzle/guzzle": "3.7.*"
+        "guzzle/guzzle": "3.*"
     },
     "require-dev": {
         "atoum/atoum": "dev-master"
