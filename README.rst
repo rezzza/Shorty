@@ -7,6 +7,8 @@ Shorty Documentation
 .. image:: https://secure.travis-ci.org/Rezzza/Shorty.png?branch=master
    :target: http://travis-ci.org/Rezzza/Shorty
 
+Underwear for your long urls
+
 Installation
 ------------
 Use `Composer <https://github.com/composer/composer/>`_ to install: ``rezzza/shorty``.
