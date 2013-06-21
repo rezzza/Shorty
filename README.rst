@@ -1,8 +1,8 @@
 Shorty Documentation
 ====================
 
-.. image:: https://poser.pugx.org/rezzza/shorty/version.png
-   :target: https://packagist.org/packages/rezzza/shorty
+.. image:: https://poser.pugx.org/rezzza/Shorty/version.png
+   :target: https://packagist.org/packages/rezzza/Shorty
 
 .. image:: https://secure.travis-ci.org/Rezzza/Shorty.png?branch=master
    :target: http://travis-ci.org/Rezzza/Shorty
