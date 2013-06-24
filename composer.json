@@ -19,11 +19,14 @@
         "issues": "https://github.com/rezzza/Shorty/issues"
     },
     "require": {
-        "php": ">=5.3.3",
-        "guzzle/guzzle": "3.*"
+        "php": ">=5.3.3"
     },
     "require-dev": {
-        "atoum/atoum": "dev-master"
+        "atoum/atoum": "dev-master",
+        "guzzle/guzzle": "3.*"
+    },
+    "suggest": {
+        "guzzle/http": "Guzzle HTTP Adapter"
     },
     "autoload": {
         "psr-0": {

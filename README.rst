@@ -33,9 +33,10 @@ Example with the Google shortener:
 
 .. code-block:: php
 
-    $googleShortener = new \Rezzza\Shorty\Google();
-    $shortUrl = $googleShortener->shorten('http://www.verylastroom.com/');
-    $longUrl = $googleShortener->expand('http://goo.gl/YY5Tz');
+    $googleShortener = new \Rezzza\Shorty\Provider\Google();
+    $googleShortener->setHttpAdapter(new \Rezzza\Shorty\Http\GuzzleAdapter());
+    $shortUrl        = $googleShortener->shorten('http://www.verylastroom.com/');
+    $longUrl         = $googleShortener->expand('http://goo.gl/YY5Tz');
 
 
 Unit Tests
