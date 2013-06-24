@@ -3,6 +3,7 @@ language: php
 php:
     - 5.3
     - 5.4
+    - 5.5
 
 before_script:
     - wget http://getcomposer.org/composer.phar
@@ -10,3 +11,11 @@ before_script:
 
 script:
     - bin/atoum -d tests/units
+    
+    
+notifications:
+    email:
+        recipients:
+            - ci@verylastroom.com
+        on_success: change
+        on_failure: change
