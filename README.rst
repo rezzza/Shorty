@@ -54,3 +54,4 @@ Release notes
 1.0.0
 
 * Added Google Url Shortener.
+* Added Bitly Url Shortener.
