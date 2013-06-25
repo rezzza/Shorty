@@ -2,9 +2,7 @@
 
 namespace Rezzza\Shorty\Provider;
 
-use Guzzle\Service\Client;
 use Rezzza\Shorty\Http\Response;
-use Rezzza\Shorty\Exception;
 
 /**
  * Google
@@ -40,7 +38,7 @@ class Google extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        return $this->extractKeyFromResponse('id', $response);
+        return $this->extractKeyFromResponse('[id]', $response);
     }
 
     /**
@@ -57,27 +55,6 @@ class Google extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        return $this->extractKeyFromResponse('longUrl', $response);
-    }
-
-    /**
-     * @param string   $key      key
-     * @param Response $response response
-     *
-     * @return mixed
-     */
-    private function extractKeyFromResponse($key, Response $response)
-    {
-        $body = json_decode($response->getBody(), true);
-
-        if (null === $body) {
-            throw new Exception\UnexpectedResponseException(sprintf('JSON body expected, "%s" returned', $response->getBody()));
-        }
-
-        if (!isset($body[$key])) {
-            throw new Exception\UnexpectedResponseException(sprintf('Key "%s" not found in payload "%s"', $key, $response->getBody()));
-        }
-
-        return $body[$key];
+        return $this->extractKeyFromResponse('[longUrl]', $response);
     }
 }
