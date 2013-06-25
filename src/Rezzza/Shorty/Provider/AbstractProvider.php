@@ -3,8 +3,10 @@
 namespace Rezzza\Shorty\Provider;
 
 use Guzzle\Service\Client;
+use Rezzza\Shorty\Exception;
 use Rezzza\Shorty\Http\AdapterInterface;
 use Rezzza\Shorty\Http\Response;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
  * AbstractProvider
@@ -52,5 +54,34 @@ abstract class AbstractProvider implements ProviderInterface
         }
 
         return $response;
+    }
+
+    /**
+     * @param string   $key      key
+     * @param Response $response response
+     * @param string   $format   format
+     *
+     * @return mixed
+     */
+    protected function extractKeyFromResponse($key, Response $response, $format= 'json')
+    {
+        if ($format != 'json') {
+            throw new \LogicException(__METHOD__.' accepts only json format.');
+        }
+
+        $body = json_decode($response->getBody(), true);
+
+        if (null === $body) {
+            throw new Exception\UnexpectedResponseException(sprintf('JSON body expected, "%s" returned', $response->getBody()));
+        }
+
+        $accessor = PropertyAccess::createPropertyAccessor();
+        $value    = $accessor->getValue($body, $key);
+
+        if (null === $value) {
+            throw new Exception\UnexpectedResponseException(sprintf('Key "%s" not found in payload "%s"', $key, $response->getBody()));
+        }
+
+        return $value;
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Rezzza\Shorty\Provider;
 
-use Guzzle\Service\Client;
 use Rezzza\Shorty\Http\Response;
 
 /**
@@ -39,7 +38,7 @@ class Google extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        return $this->extractKeyFromResponse('id', $response);
+        return $this->extractKeyFromResponse('[id]', $response);
     }
 
     /**
@@ -56,19 +55,6 @@ class Google extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        return $this->extractKeyFromResponse('longUrl', $response);
-    }
-
-    /**
-     * @param string   $key      key
-     * @param Response $response response
-     *
-     * @return mixed
-     */
-    private function extractKeyFromResponse($key, Response $response)
-    {
-        $body = json_decode($response->getBody(), true);
-
-        return isset($body[$key]) ? $body[$key] : null;
+        return $this->extractKeyFromResponse('[longUrl]', $response);
     }
 }

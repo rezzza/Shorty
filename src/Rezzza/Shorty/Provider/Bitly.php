@@ -2,7 +2,6 @@
 
 namespace Rezzza\Shorty\Provider;
 
-use Guzzle\Service\Client;
 use Rezzza\Shorty\Http\Response;
 
 /**
@@ -46,9 +45,7 @@ class Bitly extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        $body = json_decode($response->getBody(), true);
-
-        return (isset($body['data']) && isset($body['data']['url'])) ? $body['data']['url'] : null;
+        return $this->extractKeyFromResponse('[data][url]', $response);
     }
 
     /**
@@ -65,16 +62,6 @@ class Bitly extends AbstractProvider
             'Content-Type' => 'application/json'
         ));
 
-        $body = json_decode($response->getBody(), true);
-
-        if (isset($body['data']) && isset($body['data']['expand'])) 
-        {
-            $expands = $body['data']['expand'];
-            $expand  = current($expands);
-
-            return $expand['long_url'];
-        } else {
-            return null;
-        }
+        return $this->extractKeyFromResponse('[data][expand][0][long_url]', $response);
     }
 }
