@@ -75,7 +75,7 @@ abstract class AbstractProvider implements ProviderInterface
             throw new Exception\UnexpectedResponseException(sprintf('JSON body expected, "%s" returned', $response->getBody()));
         }
 
-        $accessor = PropertyAccess::createPropertyAccessor();
+        $accessor = PropertyAccess::getPropertyAccessor();
         $value    = $accessor->getValue($body, $key);
 
         if (null === $value) {
