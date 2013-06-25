@@ -4,6 +4,7 @@ namespace Rezzza\Shorty\Provider;
 
 use Guzzle\Service\Client;
 use Rezzza\Shorty\Http\Response;
+use Rezzza\Shorty\Exception;
 
 /**
  * Google
@@ -69,6 +70,14 @@ class Google extends AbstractProvider
     {
         $body = json_decode($response->getBody(), true);
 
-        return isset($body[$key]) ? $body[$key] : null;
+        if (null === $body) {
+            throw new Exception\UnexpectedResponseException(sprintf('JSON body expected, "%s" returned', $response->getBody()));
+        }
+
+        if (!isset($body[$key])) {
+            throw new Exception\UnexpectedResponseException(sprintf('Key "%s" not found in payload "%s"', $key, $response->getBody()));
+        }
+
+        return $body[$key];
     }
 }

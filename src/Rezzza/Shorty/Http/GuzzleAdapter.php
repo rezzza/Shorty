@@ -3,7 +3,14 @@
 namespace Rezzza\Shorty\Http;
 
 use Guzzle\Http\Client;
+use Rezzza\Shorty\Exception;
 
+/**
+ * GuzzleAdapter
+ *
+ * @uses AdapterInterface
+ * @author Stephane PY <py.stephane1@gmail.com>
+ */
 class GuzzleAdapter implements AdapterInterface
 {
     /**
@@ -14,7 +21,11 @@ class GuzzleAdapter implements AdapterInterface
         $client   = new Client();
         $request  = $client->get($path, $headers);
 
-        $response = $request->send();
+        try {
+            $response = $request->send();
+        } catch (\Exception $e) {
+            throw new Exception\RemoteErrorException($e->getMessage());
+        }
 
         return new Response($response->getStatusCode(), $response->getBody(true));
     }
@@ -27,7 +38,11 @@ class GuzzleAdapter implements AdapterInterface
         $client   = new Client();
         $request  = $client->post($path, $headers, $body);
 
-        $response = $request->send();
+        try {
+            $response = $request->send();
+        } catch (\Exception $e) {
+            throw new Exception\RemoteErrorException($e->getMessage());
+        }
 
         return new Response($response->getStatusCode(), $response->getBody(true));
     }
