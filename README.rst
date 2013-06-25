@@ -35,6 +35,8 @@ Example with the Google shortener:
 
     $googleShortener = new \Rezzza\Shorty\Provider\Google();
     $googleShortener->setHttpAdapter(new \Rezzza\Shorty\Http\GuzzleAdapter());
+    // or
+    // $googleShortener->setHttpAdapter(new \Rezzza\Shorty\Http\CurlAdapter());
     $shortUrl        = $googleShortener->shorten('http://www.verylastroom.com/');
     $longUrl         = $googleShortener->expand('http://goo.gl/YY5Tz');
 
@@ -55,3 +57,4 @@ Release notes
 
 * Added Google Url Shortener.
 * Added Bitly Url Shortener.
+* Added Curl Http adapter.
