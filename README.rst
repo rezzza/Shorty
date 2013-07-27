@@ -25,7 +25,7 @@ In your `composer.json` you should have:
 
 Requirements
 ~~~~~~~~~~~~
-Shorty requires `Guzzle`.
+Shorty requires `Guzzle <https://github.com/guzzle/guzzle>`_.
 
 Usage
 -----
