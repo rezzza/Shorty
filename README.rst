@@ -6,7 +6,10 @@ Shorty Documentation
 
 .. image:: https://travis-ci.org/rezzza/Shorty.png?branch=master
    :target: http://travis-ci.org/Rezzza/Shorty
-
+   
+.. image:: https://insight.sensiolabs.com/projects/92606d9e-f7ee-48a9-adf0-d7d7cd4d8918/mini.png
+   :target: https://insight.sensiolabs.com/projects/92606d9e-f7ee-48a9-adf0-d7d7cd4d8918
+   
 Underwear for your long urls
 
 Installation
