@@ -44,6 +44,18 @@ Example with the Google shortener:
     $longUrl         = $googleShortener->expand('http://goo.gl/YY5Tz');
 
 
+Example with the Chain shortener:
+
+.. code-block:: php
+
+    $chainShortener = new \Rezzza\Shorty\Provider\Chain();
+    $chainShortener->addProvider($googleShortener); // see example above
+    $chainShortener->addProvider($bitlyShortener);
+
+    $shortUrl       = $chainShortener->shorten('http://www.verylastroom.com/');
+    $longUrl        = $chainShortener->expand('http://goo.gl/YY5Tz');
+
+
 Unit Tests
 ----------
 
@@ -55,6 +67,10 @@ You can run tests with:
 
 Release notes
 -------------
+
+1.1.0
+
+* Added Chain provider.
 
 1.0.0
 
