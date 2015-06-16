@@ -31,8 +31,11 @@ class Google extends AbstractProvider
      */
     public function shorten($url)
     {
-        $response = $this->call(self::ENDPOINT, 'POST', json_encode(array(
-            'key'     => $this->apiKey,
+        $endpoint = self::ENDPOINT.'?'.http_build_query(array(
+            'key' => $this->apiKey
+        ));
+
+        $response = $this->call($endpoint, 'POST', json_encode(array(
             'longUrl' => $url,
         )), array(
             'Content-Type' => 'application/json'
@@ -46,12 +49,12 @@ class Google extends AbstractProvider
      */
     public function expand($url)
     {
-        $url = self::ENDPOINT.'?'.http_build_query(array(
+        $endpoint = self::ENDPOINT.'?'.http_build_query(array(
             'key'      => $this->apiKey,
             'shortUrl' => $url,
         ));
 
-        $response = $this->call($url, 'GET', array(
+        $response = $this->call($endpoint, 'GET', array(
             'Content-Type' => 'application/json'
         ));
 
