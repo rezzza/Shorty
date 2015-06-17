@@ -31,9 +31,11 @@ class Google extends AbstractProvider
      */
     public function shorten($url)
     {
-        $endpoint = self::ENDPOINT.'?'.http_build_query(array(
-            'key' => $this->apiKey
-        ));
+        $endpoint = self::ENDPOINT;
+
+        if ($this->apiKey) {
+            $endpoint .= '?'.http_build_query(array('key' => $this->apiKey));
+        }
 
         $response = $this->call($endpoint, 'POST', json_encode(array(
             'longUrl' => $url,

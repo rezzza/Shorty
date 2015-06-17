@@ -11,8 +11,7 @@ before_script:
 
 script:
     - bin/atoum -d tests/units
-    
-    
+
 notifications:
     email:
         recipients:
