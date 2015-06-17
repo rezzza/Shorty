@@ -35,8 +35,8 @@ class GuzzleAdapter implements AdapterInterface
      */
     public function post($path, $body = null, array $headers = array())
     {
-        $client   = new Client();
-        $request  = $client->post($path, $headers, $body);
+        $client  = new Client();
+        $request = $client->post($path, $headers, $body);
 
         try {
             $response = $request->send();
