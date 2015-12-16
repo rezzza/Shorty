@@ -23,7 +23,7 @@
         "symfony/property-access": "2.*"
     },
     "require-dev": {
-        "atoum/atoum": "dev-master",
+        "atoum/atoum": "~2.0",
         "guzzle/guzzle": "3.*"
     },
     "suggest": {

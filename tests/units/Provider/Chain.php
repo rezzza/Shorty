@@ -30,7 +30,7 @@ class Chain extends atoum\test
             ->and($shortener->addProvider($google))
             ->and($shortener->addProvider($bitly))
 
-            ->string($shortener->shorten('foo'))->isEqualTo('bar')
+            ->phpString($shortener->shorten('foo'))->isEqualTo('bar')
             ->mock($google)->call('shorten')->once()
             ->mock($bitly)->call('shorten')->never()
 
@@ -41,7 +41,7 @@ class Chain extends atoum\test
             ->and($google->getMockController()->shorten = function() { throw new Exception(); })
             ->and($bitly->getMockController()->shorten = function() { return 'baz'; })
 
-            ->string($shortener->shorten('foo'))->isEqualTo('baz')
+            ->phpString($shortener->shorten('foo'))->isEqualTo('baz')
             ->mock($google)->call('shorten')->once()
             ->mock($bitly)->call('shorten')->once()
 
@@ -75,7 +75,7 @@ class Chain extends atoum\test
             ->and($expander->addProvider($google))
             ->and($expander->addProvider($bitly))
 
-            ->string($expander->expand('foo'))->isEqualTo('bar')
+            ->phpString($expander->expand('foo'))->isEqualTo('bar')
             ->mock($google)->call('expand')->once()
             ->mock($bitly)->call('expand')->never()
 
@@ -86,7 +86,7 @@ class Chain extends atoum\test
             ->and($google->getMockController()->expand = function() { throw new Exception(); })
             ->and($bitly->getMockController()->expand = function() { return 'baz'; })
 
-            ->string($expander->expand('foo'))->isEqualTo('baz')
+            ->phpString($expander->expand('foo'))->isEqualTo('baz')
             ->mock($google)->call('expand')->once()
             ->mock($bitly)->call('expand')->once()
 

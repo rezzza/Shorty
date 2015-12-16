@@ -28,7 +28,7 @@ class Google extends atoum\test
         )
             ->when($shortenUrl = $shortener->shorten($longUrl))
                 ->mock($adapter)->call('post')->withArguments('https://www.googleapis.com/urlshortener/v1/url', json_encode(array('longUrl' => $longUrl)), array('Content-Type' => 'application/json'))->once()
-                ->string($shortenUrl)->isIdenticalTo($shortUrl)
+                ->phpString($shortenUrl)->isIdenticalTo($shortUrl)
         ;
     }
 
@@ -46,7 +46,7 @@ class Google extends atoum\test
         )
             ->when($longUrl = $shortener->expand($shortUrl))
                 ->mock($adapter)->call('get')->withArguments('https://www.googleapis.com/urlshortener/v1/url?'.http_build_query(array('shortUrl' => $shortUrl)), array())->once()
-                ->string($longUrl)->isIdenticalTo($longUrl)
+                ->phpString($longUrl)->isIdenticalTo($longUrl)
         ;
     }
 
