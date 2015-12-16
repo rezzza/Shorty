@@ -26,7 +26,7 @@ class Bitly extends atoum\test
         $this
             ->if($shortener = new TestedBitly($this->accessToken))
             ->and($shortener->setHttpAdapter(new GuzzleAdapter()))
-            ->string($shortener->shorten('http://www.verylastroom.com/'))
+            ->phpString($shortener->shorten('http://www.verylastroom.com/'))
             ->isIdenticalTo('http://bit.ly/19lJjpY')
             ;
     }
@@ -36,7 +36,7 @@ class Bitly extends atoum\test
         $this
             ->if($shortener = new TestedBitly($this->accessToken))
             ->and($shortener->setHttpAdapter(new GuzzleAdapter()))
-            ->string($shortener->expand('http://bit.ly/19lJjpY'))
+            ->phpString($shortener->expand('http://bit.ly/19lJjpY'))
             ->isIdenticalTo('http://www.verylastroom.com/')
             ;
     }

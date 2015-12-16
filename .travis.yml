@@ -1,13 +1,19 @@
 language: php
 
+dist: trusty
+sudo: required
+
 php:
-    - 5.3
     - 5.4
     - 5.5
+    - 5.6
+    - 7.0
 
 before_script:
-    - wget http://getcomposer.org/composer.phar
-    - php composer.phar install --dev
+    - git clone --branch trusty --depth=1 https://github.com/rezzza/travis-ci.git ~/.rezzza.travis-ci
+    - ~/.rezzza.travis-ci/php/bootstrap.sh apcu
+    - phpenv rehash
+    - composer install --optimize-autoloader --prefer-dist --no-scripts
 
 script:
     - bin/atoum -d tests/units
