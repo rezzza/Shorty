@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/property-access": "2.*"
+        "symfony/property-access": "~2.2|~3.0"
     },
     "require-dev": {
         "atoum/atoum": "~2.0",
